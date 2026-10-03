@@ -1,270 +1,761 @@
-# Network Monitoring Tool
+# Advanced Calculator GUI
 
-A simple **Python-based Network Monitoring Tool** that runs in the terminal and allows users to check their computer's network connection, IP address, network interfaces, packet information, network usage, and current network activity.
+## Description
 
-This project was created as a beginner-friendly Python project to practice functions, loops, conditional statements, dictionaries, lists, user input, file handling, and Python libraries.
+An advanced calculator application with a modern graphical user interface (GUI) built using **Python and Tkinter**. This project allows users to perform both basic and scientific calculations through an interactive desktop application.
+
+The calculator includes basic arithmetic, scientific functions, trigonometric calculations, memory functions, angle mode selection, calculation history, clipboard support, random number generation, permutation and combination calculations, and keyboard shortcuts.
+
+The application uses a dark-themed interface and is designed to be simple and user-friendly while demonstrating different Python programming concepts.
 
 ## Features
 
-* Connection Status
+### Basic Calculator
 
-  * Checks if the computer is connected to the internet
-  * Displays the computer name
+* Addition
+* Subtraction
+* Multiplication
+* Division
+* Decimal (`.`) support
+* Parentheses `(` and `)`
+* Clear (`C`) button
+* Backspace (`⌫`) button
+* Percentage (`%`)
+* Sign change (`±`)
+* Reciprocal (`1/x`)
+* Power calculations
+* Error handling for invalid expressions
+* Previous calculation display
+* Last answer (`Ans`) support
 
-* IP Address Information
+### Scientific Calculator
 
-  * Displays the computer name
-  * Displays the local IP address
-  * Performs a basic DNS connection test
+* Square Root (`√`)
+* Square (`x²`)
+* Cube (`x³`)
+* Power (`xʸ`)
+* Pi (`π`)
+* Euler's Number (`e`)
+* Sine (`sin`)
+* Cosine (`cos`)
+* Tangent (`tan`)
+* Inverse Sine (`asin`)
+* Inverse Cosine (`acos`)
+* Inverse Tangent (`atan`)
+* Hyperbolic Sine (`sinh`)
+* Hyperbolic Cosine (`cosh`)
+* Hyperbolic Tangent (`tanh`)
+* Common Logarithm (`log`)
+* Natural Logarithm (`ln`)
+* `10ˣ`
+* `eˣ`
+* `2ˣ`
+* Factorial (`!`)
+* Absolute Value (`abs`)
+* Floor (`floor`)
+* Ceiling (`ceil`)
 
-* Ping Test
+### Angle Mode
 
-  * Tests a website or IP address
-  * Displays the ping results
-  * Shows whether the connection was successful
+The calculator supports two angle modes for trigonometric calculations:
 
-* Network Interface Information
+* **DEG** - Degrees
+* **RAD** - Radians
 
-  * Displays available network interfaces
-  * Shows IPv4 addresses
-  * Shows IPv6 addresses
-  * Shows subnet masks
-  * Shows MAC addresses
+The user can switch between the two modes using the **Angle** button.
 
-* Network Speed Activity
-
-  * Measures current upload activity
-  * Measures current download activity
-  * Displays network activity in KB/s
-
-* Packet Information
-
-  * Displays bytes sent
-  * Displays bytes received
-  * Displays packets sent
-  * Displays packets received
-  * Displays network errors
-  * Displays dropped packets
-
-* Network Usage
-
-  * Displays total uploaded data
-  * Displays total downloaded data
-  * Displays total network usage
-  * Displays network errors and dropped packets
-
-* Network Logs
-
-  * Creates network connection logs
-  * Records connection status
-  * Records the date and time
-  * Displays previously created logs
-
-* Full Network Report
-
-  * Displays multiple network statistics in one report
-
-* Save Network Report
-
-  * Saves network information to a `.txt` file
-
-## Menu
+Example:
 
 ```text
-==========================================
-        NETWORK MONITORING TOOL
-==========================================
-1.  Connection Status
-2.  IP Address Information
-3.  Ping Test
-4.  Network Interface Information
-5.  Network Speed Activity
-6.  Packet Information
-7.  Network Usage
-8.  Create Network Log
-9.  Show Network Logs
-10. Full Network Report
-11. Save Network Report
-0.  Exit
-==========================================
+Angle: DEG
 ```
+
+or:
+
+```text
+Angle: RAD
+```
+
+This allows trigonometric functions such as `sin`, `cos`, and `tan` to work with either degrees or radians.
+
+### Memory Functions
+
+The calculator includes a memory system for temporarily storing numerical values.
+
+* **MC** - Memory Clear
+* **MR** - Memory Recall
+* **M+** - Add current value to memory
+* **M-** - Subtract current value from memory
+
+Example:
+
+```text
+Enter: 100
+Press M+
+Clear the display
+Press MR
+
+Result: 100
+```
+
+The memory value remains available while the application is running.
+
+### Previous Answer
+
+The calculator keeps track of the most recent answer.
+
+The **Ans** button can be used to insert the previous result into the calculator.
+
+Example:
+
+```text
+5 + 5
+= 10
+
+Press Ans
+
+10
+```
+
+This allows the previous calculation result to be reused in another calculation.
+
+### Permutation
+
+The calculator can calculate permutations using `nPr`.
+
+The user enters values in the format:
+
+```text
+5,2
+```
+
+The calculator then calculates:
+
+```text
+5P2 = 20
+```
+
+This feature uses Python's factorial calculations.
+
+### Combination
+
+The calculator also supports combinations using `nCr`.
+
+The user can enter:
+
+```text
+5,2
+```
+
+The result is:
+
+```text
+5C2 = 10
+```
+
+This feature uses Python's built-in combination calculation.
+
+### Random Number Generator
+
+The calculator can generate a random number between `1` and a maximum value.
+
+For example:
+
+```text
+Enter:
+
+100
+
+Press Random
+```
+
+The calculator will generate a random number between:
+
+```text
+1 - 100
+```
+
+This feature uses Python's `random` module.
+
+### Calculation History
+
+The calculator stores calculations performed during the current session.
+
+Example:
+
+```text
+5 + 5 = 10
+10 * 2 = 20
+√25 = 5.0
+```
+
+The history is displayed in a listbox at the bottom of the application.
+
+Users can:
+
+* View previous calculations
+* Select a history item
+* Load a previous result
+* Delete a selected history item
+* Clear the entire history
+
+### History Management
+
+The calculator provides several tools for managing calculation history.
+
+#### Clear History
+
+Removes all saved calculations from the history list.
+
+#### Delete Selected History
+
+Allows the user to select one calculation and remove it.
+
+#### Load History
+
+Allows the user to select a previous calculation and load its result back into the calculator display.
+
+This makes it easier to reuse previous answers.
+
+### Clipboard Support
+
+The calculator includes a **Copy** button that copies the current display value to the system clipboard.
+
+Example:
+
+```text
+Result: 125.5
+
+Press Copy
+```
+
+The result can then be pasted into another application.
+
+### Calculation Counter
+
+The application keeps track of how many successful calculations have been performed during the current session.
+
+The status bar displays the calculation count after a successful calculation.
+
+Example:
+
+```text
+Calculated Successfully | Calculations: 5
+```
+
+### Keyboard Shortcuts
+
+The calculator supports keyboard shortcuts for common actions.
+
+| Key       | Function              |
+| --------- | --------------------- |
+| Enter     | Calculate             |
+| Backspace | Delete last character |
+| Escape    | Clear display         |
+
+This allows users to interact with the calculator using the keyboard in addition to the GUI buttons.
+
+### Status Bar
+
+A status bar is displayed at the bottom of the application.
+
+It provides feedback such as:
+
+```text
+Calculator Ready
+```
+
+```text
+Calculated Successfully
+```
+
+```text
+History cleared
+```
+
+```text
+Copied to clipboard
+```
+
+```text
+Invalid Expression
+```
+
+This helps users understand what the calculator is currently doing.
+
+### Error Handling
+
+The calculator uses Python's `try` and `except` statements to handle invalid calculations and prevent the application from crashing.
+
+For example, invalid mathematical operations display an error message instead of terminating the program.
+
+Example:
+
+```text
+Error
+Invalid operation
+```
+
+This provides a better user experience when incorrect values are entered.
+
+---
+
+## User Interface
+
+The application uses a dark-themed graphical interface.
+
+The interface contains:
+
+```text
+Advanced Calculator
+│
+├── Previous Answer
+├── Display
+├── Angle Mode
+├── History Controls
+├── Memory Buttons
+├── Scientific Buttons
+├── Basic Calculator Buttons
+├── Extra Functions
+├── Calculation History
+├── History Controls
+└── Status Bar
+```
+
+The layout is organized using Tkinter frames to keep the different calculator sections separated.
+
+---
 
 ## Technologies Used
 
-* Python
-* `socket`
-* `platform`
-* `subprocess`
-* `psutil`
-* `time`
-* `datetime`
+* **Python 3**
+* **Tkinter**
+* **Math Module**
+* **Random Module**
 
-## Requirements
+Tkinter is used to create the graphical user interface.
 
-Before running the program, make sure you have:
+The `math` module provides scientific and mathematical functions.
 
-* Python 3.x
-* PyCharm, VS Code, or another Python editor
-* `psutil` library
+The `random` module is used for random number generation.
 
-## Installation
+---
 
-### 1. Clone the Repository
+## Python Concepts Used
 
-```bash
-git clone https://github.com/yourusername/Network-Monitoring-Tool.git
+This project demonstrates several Python programming concepts.
+
+### Object-Oriented Programming
+
+The calculator is organized using a class:
+
+```python
+class CalculatorApp:
 ```
 
-### 2. Open the Project
+The class contains the calculator's interface, variables, and functions.
 
-Open the project folder in **PyCharm**, **VS Code**, or your preferred Python editor.
+This makes the program easier to organize and maintain.
 
-### 3. Install psutil
+### Functions
 
-Open the terminal and run:
+Different functions are used for different calculator operations.
+
+Examples include:
+
+```python
+def calculate():
+```
+
+```python
+def special():
+```
+
+```python
+def memory_add():
+```
+
+```python
+def memory_recall():
+```
+
+```python
+def clear_history():
+```
+
+```python
+def delete_history():
+```
+
+```python
+def load_history():
+```
+
+```python
+def toggle_angle_mode():
+```
+
+Using separate functions makes the program easier to understand and modify.
+
+### Variables
+
+Variables are used to store information such as:
+
+```python
+self.memory = 0
+self.last_answer = 0
+self.calculation_count = 0
+self.angle_mode = "DEG"
+```
+
+These variables allow the calculator to keep track of its current state.
+
+### Lists
+
+A list is used to store calculation history:
+
+```python
+self.history = []
+```
+
+New calculations are added to the list when the user performs a calculation.
+
+### Conditional Statements
+
+The program uses `if`, `elif`, and `else` statements to determine which operation should be performed.
+
+Example:
+
+```python
+if operation == "√":
+    result = math.sqrt(x)
+
+elif operation == "x²":
+    result = x ** 2
+
+elif operation == "x³":
+    result = x ** 3
+```
+
+### Exception Handling
+
+The calculator uses:
+
+```python
+try:
+```
+
+and:
+
+```python
+except:
+```
+
+to handle invalid mathematical operations and incorrect input.
+
+This prevents common errors from crashing the application.
+
+### Loops
+
+Loops are used when creating groups of calculator buttons.
+
+For example:
+
+```python
+for text in scientific_buttons:
+```
+
+This avoids having to manually create every button separately.
+
+### Event Handling
+
+Tkinter button commands are connected to Python functions.
+
+For example:
+
+```python
+command=lambda x=text: self.special(x)
+```
+
+When the user clicks a scientific button, the corresponding operation is executed.
+
+### Keyboard Events
+
+The program uses Tkinter's `bind()` function to connect keyboard keys to calculator functions.
+
+```python
+root.bind("<Return>", lambda e: self.calculate())
+```
+
+This allows the Enter key to perform calculations.
+
+---
+
+## Project Structure
+
+```text
+Calculator-GUI/
+│
+├── main-gui.py
+├── README.md
+└── LICENSE
+```
+
+### `main-gui.py`
+
+Contains the complete calculator application, including:
+
+* GUI design
+* Calculator operations
+* Scientific functions
+* Memory functions
+* History management
+* Keyboard shortcuts
+* Error handling
+* Random number generation
+* Statistics
+
+### `README.md`
+
+Contains the project documentation, features, instructions, and learning information.
+
+### `LICENSE`
+
+Contains the license information for the project.
+
+---
+
+## How to Run
+
+### 1. Install Python
+
+Make sure Python 3 is installed on your computer.
+
+You can check your Python version using:
 
 ```bash
-pip install psutil
+python --version
 ```
+
+### 2. Clone or Download the Repository
+
+Clone the repository using Git:
+
+```bash
+git clone https://github.com/your-username/Calculator-GUI.git
+```
+
+Or download the repository as a ZIP file.
+
+### 3. Open the Project
+
+Open the project using:
+
+* PyCharm
+* Visual Studio Code
+* Another Python IDE
 
 ### 4. Run the Program
 
-Run:
+If the main file is named `main-gui.py`, run:
+
+```bash
+python main-gui.py
+```
+
+If the file is renamed to `main.py`, run:
 
 ```bash
 python main.py
 ```
 
-Or run `main.py` directly from PyCharm.
+---
 
-## Project Structure
+## Example Calculations
 
-```text
-Network-Monitoring-Tool/
-│
-├── main.py
-├── network_report.txt
-└── README.md
-```
-
-The `network_report.txt` file is created automatically when the user selects **Save Network Report**.
-
-## Example
-
-When the program starts, it displays a menu:
+### Basic Arithmetic
 
 ```text
-==========================================
-        NETWORK MONITORING TOOL
-==========================================
-1.  Connection Status
-2.  IP Address Information
-3.  Ping Test
-4.  Network Interface Information
-5.  Network Speed Activity
-6.  Packet Information
-7.  Network Usage
-8.  Create Network Log
-9.  Show Network Logs
-10. Full Network Report
-11. Save Network Report
-0.  Exit
-==========================================
-
-Enter your choice:
+10 + 5
 ```
 
-### Example Connection Status
+Result:
 
 ```text
----------- CONNECTION STATUS ----------
-
-Internet Status : Connected
-Computer Name   : MY-COMPUTER
+15
 ```
 
-### Example Packet Information
+### Square Root
 
 ```text
----------- PACKET INFORMATION ----------
-
-Bytes Sent       : 245678
-Bytes Received   : 1845678
-Packets Sent     : 3521
-Packets Received : 4820
-Errors Sent      : 0
-Errors Received  : 0
-Dropped Sent     : 0
-Dropped Received : 0
+√25
 ```
 
-### Example Network Log
+Result:
 
 ```text
----------- NETWORK LOG ----------
-
-Network status recorded.
-Time   : 2026-09-26 10:30:15
-Status : Connected
+5.0
 ```
 
-## Learning Objectives
+### Square
 
-This project helps practice the following Python concepts:
+```text
+5²
+```
 
-* Functions
-* `while` loops
-* `for` loops
-* `if`, `elif`, and `else`
-* Lists
-* Dictionaries
-* User input using `input()`
-* File handling
-* Exception handling
-* Python modules
-* External libraries
-* Working with network information
-* Basic system monitoring
+Result:
 
-## Purpose
+```text
+25
+```
 
-The purpose of this project is to create a simple command-line tool that allows users to monitor basic network information from their computer.
+### Factorial
 
-It is also a learning project for understanding how Python can interact with network information and operating system resources.
+```text
+5!
+```
 
-## Important Note
+Result:
 
-The **Network Speed Activity** feature measures the amount of data being transferred during the test. It is not a full internet speed test and does not measure your maximum internet connection speed.
+```text
+120
+```
 
-Some network information may also be unavailable depending on the operating system, permissions, or network configuration.
+### Trigonometry
+
+Using DEG mode:
+
+```text
+sin(30)
+```
+
+Result:
+
+```text
+0.5
+```
+
+### Logarithm
+
+```text
+log(100)
+```
+
+Result:
+
+```text
+2.0
+```
+
+### Combination
+
+```text
+5,2
+```
+
+Using `nCr`:
+
+```text
+10
+```
+
+### Permutation
+
+```text
+5,2
+```
+
+Using `nPr`:
+
+```text
+20
+```
+
+---
+
+## Screenshots
+
+<img width="400" height="500" alt="Advanced Calculator GUI" src="https://github.com/user-attachments/assets/5424d3e2-a8d7-402b-a685-86f3cac7e796" />
+
+---
+
+## What I Learned
+
+Through this project, I learned how to:
+
+* Build desktop applications using Tkinter
+* Design a graphical user interface using frames, labels, buttons, entry widgets, and listboxes
+* Use object-oriented programming (OOP)
+* Organize a larger Python program into different functions
+* Handle button events
+* Handle keyboard shortcuts
+* Perform mathematical calculations using Python's `math` module
+* Generate random numbers using the `random` module
+* Create scientific calculator functions
+* Implement trigonometric calculations
+* Work with degrees and radians
+* Create a calculator memory system
+* Store and display calculation history
+* Delete individual history items
+* Clear calculation history
+* Load previous results
+* Copy text to the system clipboard
+* Track the number of calculations performed
+* Use Python lists and variables to store application data
+* Use `try` and `except` for error handling
+* Create a modern dark-themed GUI
+* Improve user experience through status messages and organized controls
+* Connect GUI buttons to Python functions
+* Use keyboard event binding in Tkinter
+
+---
 
 ## Future Improvements
 
-Possible features that can be added in future versions:
+Although the calculator already contains many advanced features, possible future improvements include:
 
-* Continuous network monitoring
-* Automatic connection alerts
-* Network usage graphs
-* Internet speed testing
-* Website availability monitoring
-* Port checking
-* DNS lookup tool
-* Network device discovery
-* More detailed network statistics
-* Export reports as CSV
-* Automatic network reports
-* Network history tracking
-* Network interface selection
-* Connection uptime tracking
+* Replace `eval()` with a safer mathematical expression parser
+* Add light mode
+* Add customizable themes
+* Save calculation history to a file
+* Save memory values between sessions
+* Add keyboard-only navigation
+* Make the interface fully responsive and resizable
+* Add graph plotting for mathematical functions
+* Add Programmer Mode
 
-## Disclaimer
+  * Binary
+  * Octal
+  * Decimal
+  * Hexadecimal
+* Add Unit Converter
+* Add Currency Converter
+* Add more advanced mathematical functions
+* Add equation solving
+* Add matrix calculations
+* Add statistics calculations
+* Add a calculation history export feature
+* Add custom button icons and animations
+* Add a scientific expression preview
+* Package the application as a standalone `.exe`
 
-This project is intended for **educational and personal use**. Network information and available features may vary depending on the computer, operating system, network configuration, and user permissions.
+---
 
-## Author
+## Known Limitations
 
-**Jose Navoa**
+The current version has a few limitations:
 
-Aspiring Information Technology Student
+* Calculation history is only stored while the program is running.
+* Memory values are not saved after closing the application.
+* The calculator uses `eval()` for basic mathematical expressions.
+* The `xʸ` feature currently uses the existing power implementation and can be improved with a dedicated second-value input.
+* The random number generator works with a maximum value entered by the user.
+* Permutation and combination inputs use a comma-separated format such as `5,2`.
 
-Created as a Python learning project.
+These limitations can be addressed in future versions.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
